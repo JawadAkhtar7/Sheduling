@@ -1,0 +1,29 @@
+import operator
+p_num=int(input("Enter number of processes: "))
+process_array=[]
+arrival_array=[]
+burst_array=[]
+
+for x in range(0,p_num):
+    # stores processes in array
+    y=(input("Process Name: "))
+    process_array.append(y)
+for x in range(p_num):
+    # stores arrival time in array
+    y=input("Arrival time of process: ")
+    arrival_array.append(int(y))
+for x in range(p_num):
+    # stores burst time in array
+    y=input("Burst time of process: ")
+    burst_array.append(int(y))
+
+# Sorted Process array with respect to Arrival time
+ziped_array=zip(arrival_array,process_array)
+z=[x for _,x in sorted(ziped_array)]
+# Sum of All Burst Times
+total_BT=sum(burst_array)
+#Printing
+for x in range(p_num):
+    print(z[x], end=" ")
+    for y in range(burst_array[x]):
+        print("-",end=" ")
